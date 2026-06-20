@@ -1,0 +1,10 @@
+# Generated per-machine wallpaper texture
+feed.widget/bg.jpg
+
+# Local caches
+*.cache
+.last-run
+wallpaper.path
+__pycache__/
+*.pyc
+.DS_Store
