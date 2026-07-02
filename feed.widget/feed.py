@@ -6,7 +6,7 @@ fashion drops), has DeepSeek score + summarize them against a personal taste
 profile, keeps a rolling pool so the feed always has content, and emits JSON for
 the Übersicht feed.widget.
 
-stdlib only (urllib, json, xml.etree). Modeled on ~/Desktop/projects/car/auction.py.
+stdlib only (urllib, json, xml.etree). No third-party dependencies.
 State lives in ~/.config/feed-widget/.
 """
 from datetime import datetime, timezone, timedelta
