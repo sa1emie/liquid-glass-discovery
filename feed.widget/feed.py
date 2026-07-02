@@ -54,7 +54,7 @@ DEFAULT_TASTE = (
 
 DEFAULT_CONFIG = {
     "deepseek_api_key": "",
-    "deepseek_model": "deepseek-chat",
+    "deepseek_model": "deepseek-v4-pro",
     "pubmed_email": "",            # NCBI etiquette — your contact email for the PubMed API
     "taste_profile": DEFAULT_TASTE,
     "wishlist": ["budget cropped tee"],
@@ -377,7 +377,7 @@ def deepseek_rank(new_items, cfg):
     )
     user = "Items:\n" + json.dumps(lines, ensure_ascii=False)
     body = json.dumps({
-        "model": cfg.get("deepseek_model", "deepseek-chat"),
+        "model": cfg.get("deepseek_model", "deepseek-v4-pro"),
         "messages": [{"role": "system", "content": system},
                      {"role": "user", "content": user}],
         "temperature": 0.3,

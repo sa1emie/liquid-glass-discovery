@@ -8,6 +8,8 @@ grouped by category.
 The idea: instead of checking five sites, you glance at your desktop and a few things worth reading
 are already there, already summarized.
 
+![Liquid Glass Discovery card](docs/showcase.png)
+
 This is the second piece in a small series of Liquid Glass desktop widgets (the
 [weather widget](https://github.com/sa1emie/liquid-glass-weather) was the first). The glass is the
 same WebGL approach; the new part here is the curation pipeline behind it.
@@ -56,8 +58,12 @@ got a feed for film, finance, climate research, whatever you read.
 The card is real glass, not a flat translucent box: a WebGL fragment shader refracts your desktop
 wallpaper, with edge-only refraction, a chromatic-aberration fringe, a specular rim, and a drop
 shadow. Übersicht runs on WebKit, where the usual CSS/SVG `backdrop-filter` tricks fall back to a
-plain blur, so the refraction is done in a shader that samples the wallpaper image directly. The
-expanded reader is the same glass at a larger size. See the
+plain blur, so the refraction is done in a shader that samples the wallpaper image directly.
+
+`feed.widget` itself is pure DOM — it owns no WebGL. It ships alongside `glass.widget`, the shared
+renderer ([its own repo](https://github.com/sa1emie/liquid-glass-ubersicht)), and just registers its
+card with it. The expanded reader is the same glass at a larger size, registered on the renderer's
+modal layer so it floats over a dimmed desktop. See the
 [weather repo](https://github.com/sa1emie/liquid-glass-weather) for a deeper writeup of the shader.
 
 ## Requirements
@@ -70,7 +76,7 @@ expanded reader is the same glass at a larger size. See the
 ## Install
 
 ```bash
-cp -R feed.widget "$HOME/Library/Application Support/Übersicht/widgets/"
+cp -R feed.widget glass.widget "$HOME/Library/Application Support/Übersicht/widgets/"
 # add your DeepSeek key after the first run:
 #   ~/.config/feed-widget/config.json  ->  "deepseek_api_key": "sk-..."
 ```

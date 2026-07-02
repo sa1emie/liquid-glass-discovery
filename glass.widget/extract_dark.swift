@@ -1,5 +1,5 @@
 // Extract the DARK frame of a macOS dynamic wallpaper .heic (it embeds a light
-// + dark image) and write it downscaled to a PNG. Assumes dark mode,
+// + dark image) and write it downscaled to a PNG. Salem is always in dark mode,
 // so the darkest frame is what the desktop actually shows.
 // Usage: swift extract_dark.swift <input.heic> <output.png>
 import Foundation
